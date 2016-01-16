@@ -56,18 +56,19 @@ def get_closest_pair(p):
     return closest_pair(*get_sorted(p))
 
 
-def test():
-    p = [(random.random(), 0 * i + random.random()) for i in range(500000)]
+def test(n=1000):
+    p = [(random.random(), 0 * i + random.random()) for i in range(n)]
+    print('There are {} points in set.'.format(n))
     t1 = time.time()
     a = get_closest_pair(p)
     print('use O(n*lgn) algorithm: {}'.format(time.time() - t1))
     t2 = time.time()
-    # b = get_closest_pair.simple_way(p)
+    b = get_closest_pair.simple_way(p)
     print('use O(n^2) algorithm: {}'.format(time.time() - t2))
     print('The closest pair in p is: {}'.format(a))
-    # print('The closest pair in p is: {}'.format(b))
-    # print('Is these the same stuff? {}'.format(a == b or tuple(reversed(a)) == b))
-    # print('dist 1: {}, dist 2: {}'.format(get_closest_pair.dist(a), get_closest_pair.dist(b)))
+    print('The closest pair in p is: {}'.format(b))
+    print('Is these the same stuff? {}'.format(a == b or tuple(reversed(a)) == b))
+    print('dist 1: {}, dist 2: {}'.format(get_closest_pair.dist(a), get_closest_pair.dist(b)))
 
 if __name__ == '__main__':
     test()
