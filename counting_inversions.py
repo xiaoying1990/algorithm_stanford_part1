@@ -71,3 +71,6 @@ def test(size=pow(10, 5)):
 if __name__ == '__main__':
     test()
     test(10)
+    l = [int(i) for i in open('IntegerArray.txt')]
+    ans = counting_inversions(l)
+    print(ans[0])

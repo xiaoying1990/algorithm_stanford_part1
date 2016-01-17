@@ -3,12 +3,13 @@
 import random
 
 
-def merge_sort(arr):
+def merge_sort(ar):
     """
     O(n*log(n)), dived & conquer algorithm for sorting array to increasing order.
-    :param arr: type(arr) = 'list', as a array of number.
+    :param ar: type(ar) = 'list', as a array of number.
     :return: None, while sorting the parameter 'arr' itself. We can change it, because list is mutable.
     """
+    arr = ar[:]
     def merge(begin, end, mid):
         """
         The key function which merge two adjacent pieces of arr into a sorted one.
@@ -39,19 +40,21 @@ def merge_sort(arr):
         merge_sort_for_arr(begin, mid)
         merge_sort_for_arr(mid + 1, end)
         merge(begin, end, mid)
+
     merge_sort_for_arr()
+    return arr
 
 
 def test():
-    l = list(random.randint(0 * i, 100) for i in range(10))
+    l = list(random.randint(0 * i, 100) for i in range(50000))
     random.shuffle(l)
     print('the list l: {}'.format(l))
     l_sorted = sorted(l)
-    merge_sort(l)
+    l_sorted2 = merge_sort(l)
     print('using built-in function sorted: {}'.format(l_sorted))
-    print('list l after applying merger_sort: {}'.format(l))
-    print('Does these the same result? {}'.format(l == l_sorted))
-    print('Does these the same list object? {}'.format(l is l_sorted))
+    print('list l after applying merger_sort: {}'.format(l_sorted2))
+    print('Does these the same result? {}'.format(l_sorted2 == l_sorted))
+    print('Does these the same list object? {}'.format(l_sorted2 is l_sorted))
 
 if __name__ == '__main__':
     test()
