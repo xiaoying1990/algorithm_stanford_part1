@@ -6,7 +6,7 @@ SMALL_ENOUGH = 100  # when to directly multiply x and y.
 
 def karatsuba_multiplication(x, y):
     """
-    O(n*log(n)) for big x and y, rather than O(n^2), thanks for divide and conquer strategy.
+    O(n^(lg(2, 3)) for big x and y, rather than O(n^2), thanks for divide and conquer strategy.
     :param x: integer x
     :param y: integer y
     :return: x * y

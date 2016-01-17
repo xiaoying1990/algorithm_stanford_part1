@@ -193,7 +193,7 @@ class Matrix:
         return Matrix([sum(r[i] * c[i] for i in range(same_index)) for c in mb.cols()] for r in ma.rows())
 
     @staticmethod
-    def mul(ma: 'Matrix', mb: 'Matrix') -> 'Matrix':   # O(n^2)
+    def mul(ma: 'Matrix', mb: 'Matrix') -> 'Matrix':
         if not ma.is_regular_matrix() or not mb.is_regular_matrix():
             raise Exception('at least one matrix is not regular.\n{}\n{}'
                             .format(ma, mb))
@@ -206,7 +206,7 @@ class Matrix:
         ans = Matrix(ar, bc)
         a, b, c, d = ma[:ar // 2][:ac // 2], ma[:ar // 2][ac // 2:], ma[ar // 2:][:ac // 2], ma[ar // 2:][ac // 2:]
         e, f, g, h = mb[:br // 2][:bc // 2], mb[:br // 2][bc // 2:], mb[br // 2:][:bc // 2], mb[br // 2:][bc // 2:]
-        if ar % 2 == 0 and ac % 2 == 0 and br % 2 == 0 and bc % 2 == 0:
+        if ar % 2 == 0 and ac % 2 == 0 and br % 2 == 0 and bc % 2 == 0:  # O(n^(log(2, 7))
             p1, p2, p3, p4, p5, p6, p7 = a * (f - h), (a + b) * h, (c + d) * e, \
                                          d * (g - e), (a + d) * (e + h), \
                                          (b - d) * (g + h), (a - c) * (e + f)

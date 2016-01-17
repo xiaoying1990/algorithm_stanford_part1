@@ -249,7 +249,7 @@ class Matrix(ListMatrix):
         return Matrix(l, ma.size[0], mb.size[1])
 
     @staticmethod
-    def mul(ma: 'Matrix', mb: 'Matrix') -> 'Matrix':   # O(n^2)
+    def mul(ma: 'Matrix', mb: 'Matrix') -> 'Matrix':
         if ma.size[1] != mb.size[0]:
             raise Exception('cannot multiply the two matrix, ' +
                             'because the number of columns {} of ma != the number of rows {} of mb'
@@ -261,7 +261,7 @@ class Matrix(ListMatrix):
         c, d = ma[ar // 2:][:ac // 2], ma[ar // 2:][ac // 2:]
         e, f = mb[:br // 2][:bc // 2], mb[:br // 2][bc // 2:]
         g, h = mb[br // 2:][:bc // 2], mb[br // 2:][bc // 2:]
-        if ar % 2 == 0 and ac % 2 == 0 and br % 2 == 0 and bc % 2 == 0:
+        if ar % 2 == 0 and ac % 2 == 0 and br % 2 == 0 and bc % 2 == 0:  # O(n^(log(2, 7))
             p1, p2 = a * (f - h), (a + b) * h
             p3, p4 = (c + d) * e, d * (g - e)
             p5, p6, p7 = (a + d) * (e + h), (b - d) * (g + h), (a - c) * (e + f)

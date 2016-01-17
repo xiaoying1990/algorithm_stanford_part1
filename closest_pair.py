@@ -5,7 +5,7 @@ import math
 import time
 
 
-def get_closest_pair(p):
+def get_closest_pair(p):   # O(n*lgn)
     def simple_way(s: list) -> tuple:
         if len(s) < 2:
             return None
