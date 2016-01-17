@@ -71,4 +71,5 @@ def test(n=1000):
     print('dist 1: {}, dist 2: {}'.format(get_closest_pair.dist(a), get_closest_pair.dist(b)))
 
 if __name__ == '__main__':
+    test(100)
     test()
