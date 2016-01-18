@@ -14,10 +14,14 @@ def deterministic_selection(a, index):  # O(n)
             i += 5
         if i < end:
             l.append(get_median(i, end, c))
-        return get_median(0, len(l) - 1, l)
+        # return get_median(0, len(l) - 1, l)
+        return deterministic_selection(l, len(l) // 2)[0]
 
     def choose_pivot(begin, end):
-        return get_median(begin, end, ar)
+        v = get_median(begin, end, ar)
+        for i in range(begin, end + 1):
+            if ar[i] == v:
+                return i
 
     def r_s(begin, end):
         if begin > end:
